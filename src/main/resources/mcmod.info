@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "astrbot_bridge",
+    "name": "AstrBot Bridge v2",
+    "description": "MC服务器与AstrBot的桥梁，支持聊天同步、远程指令、控制台查看",
+    "version": "0.0.2",
+    "mcversion": "1.12.2",
+    "url": "",
+    "authorList": ["Su1ger, 杨大师(辅助)"],
+    "credits": "白糖(Su1ger)、杨大师(辅助)",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

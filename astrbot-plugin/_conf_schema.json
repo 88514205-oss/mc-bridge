@@ -1,0 +1,48 @@
+{
+  "mc_host": {
+    "type": "string",
+    "description": "MC服务器地址（换服务器时改这个和端口就行喵~）",
+    "default": "localhost",
+    "hint": "例如: 192.168.1.100 或 mc.example.com"
+  },
+  "ws_port": {
+    "type": "number",
+    "description": "Mod端WebSocket端口",
+    "default": 19199
+  },
+  "http_port": {
+    "type": "number",
+    "description": "Mod端HTTP API端口",
+    "default": 19200
+  },
+  "password": {
+    "type": "string",
+    "description": "连接密码（Mod端配置的password，留空不鉴权）",
+    "default": ""
+  },
+  "sync_to_qq": {
+    "type": "bool",
+    "description": "MC聊天是否同步到QQ群",
+    "default": true
+  },
+  "sync_to_game": {
+    "type": "bool",
+    "description": "QQ群消息是否同步到游戏",
+    "default": true
+  },
+  "qq_group_id": {
+    "type": "string",
+    "description": "绑定的QQ群号（留空不同步到群）",
+    "default": ""
+  },
+  "ai_reply": {
+    "type": "bool",
+    "description": "是否用AI自动回复MC玩家",
+    "default": true
+  },
+  "reply_prefix": {
+    "type": "string",
+    "description": "AI回复在游戏内的前缀（支持§颜色代码）",
+    "default": "§7[§bAI§7] §f"
+  }
+}
