@@ -1,11 +1,8 @@
-# AstrBot MC Bridge v2
+# AstrBot MC Bridge v2 · Mod（服务端）
 
-MC 服务器与 AstrBot 双向桥接。Forge 1.12.2。
+MC 服务器与 AstrBot 双向桥接的 Forge Mod。Forge 1.12.2。
 
-项目由两个独立组件组成，分开部署：
-
-- **Mod（服务端）**：`astrbot-bridge-2.0.0.jar`
-- **插件（AstrBot 端）**：`astrbot_plugin_mc_bridge_v2`
+AstrBot 端插件已拆分到独立仓库：https://github.com/88514205-oss/astrbot_plugin_mc_bridge_v2
 
 ---
 
@@ -16,36 +13,26 @@ Release：https://github.com/88514205-oss/mc-bridge/releases/tag/v2.0.0
 | 文件 | 组件 | 安装位置 |
 |:----|:----|:----|
 | `astrbot-bridge-2.0.0.jar` | Mod（服务端） | 服务端 `mods/` |
-| `astrbot_plugin_mc_bridge_v2.zip` | AstrBot 插件 | AstrBot `data/plugins/` 解压 |
 
 ---
 
 ## 安装
 
-### 一、服务端 Mod
-
 1. 下载 `astrbot-bridge-2.0.0.jar`，放进服务端 `mods/` 目录
 2. 启动一次服务器，生成配置 `config/AstrBotBridge.cfg`
 3. 按需填写端口与 `password`，重启服务器
 
-### 二、AstrBot 插件
+---
 
-1. 下载 `astrbot_plugin_mc_bridge_v2.zip`，解压到 AstrBot 的 `data/plugins/`（目录名保持 `astrbot_plugin_mc_bridge_v2`）
-2. AstrBot 面板 - 插件管理 - 启用 MC Bridge v2
-3. 配置页填 MC 服务器地址、端口、密码、绑定群号，配置项见 [astrbot-plugin/README.md](astrbot-plugin/README.md)
-4. 重载插件
+## 通信约定
 
-### 通信约定
-
-- WebSocket `19199`：Mod 推送 chat / console / player_join / player_leave
-- HTTP API `19200`：`/api/health` `/api/status` `/api/players` `/api/command` `/api/message` `/api/console`
-- 两边端口与密码必须一致；AstrBot 所在机器需能访问 MC 服务器的 19199、19200 端口
+- WebSocket `19199`：Mod 主动推送 chat / console / player_join / player_leave
+- HTTP API `19200`：客户端（AstrBot 插件）请求调用
+- 端口与密码必须与插件端配置一致；插件所在机器需能访问本机 19199、19200
 
 ---
 
 ## 仓库结构
-
-Mod 与 AstrBot 插件分开存放，互不干扰：
 
 ```
 mc-bridge/
@@ -60,12 +47,7 @@ mc-bridge/
 │   └── CommandExecutor.java         指令执行
 ├── src/main/resources/mcmod.info    Mod 元信息
 ├── build.gradle / gradlew           Mod 构建
-│
-└── astrbot-plugin/                  AstrBot 插件（独立目录）
-    ├── main.py                      插件主代码
-    ├── metadata.yaml                插件元数据
-    ├── _conf_schema.json            配置面板定义
-    └── README.md                    插件说明
+└── (无插件代码，插件在 astrbot_plugin_mc_bridge_v2 仓库)
 ```
 
 编译产物不入库，成品 jar 见 Release。
@@ -79,21 +61,15 @@ mc-bridge/
 | JDK 8 | 1.8.0_442+ | 编译 Forge 1.12.2 Mod |
 | Gradle | 4.9（Wrapper 自带） | 构建 Mod |
 | Forge | 1.12.2-14.23.5.2860 | Mod 框架 |
-| Python | 3.11+ | 运行 AstrBot 插件 |
 
 ---
 
-## 编译 Mod
+## 编译
 
 ```bash
-cd mc-bridge/
 JAVA_HOME=/usr/lib/jvm/jdk8-full ./gradlew build
 # 产物：build/libs/astrbot-bridge-2.0.0.jar
 ```
-
-## 插件开发
-
-改 `astrbot-plugin/main.py` 后重启 AstrBot 生效。
 
 ---
 
@@ -121,6 +97,7 @@ JAVA_HOME=/usr/lib/jvm/jdk8-full ./gradlew build
 
 ## 关于
 
-- 版本：Mod 2.0.0 / 插件 2.0.0（Forge 1.12.2-14.23.5.2860）
+- 版本：Mod 2.0.0（Forge 1.12.2-14.23.5.2860）
 - 作者：白糖(Su1ger)，杨大师（辅助）
+- 配套插件：https://github.com/88514205-oss/astrbot_plugin_mc_bridge_v2
 - 许可：`LICENSE.txt` 等为 Minecraft Forge MDK 自带（LGPL 2.1），其余代码版权归作者
