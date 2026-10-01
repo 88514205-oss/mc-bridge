@@ -46,4 +46,4 @@ Mod 端 HTTP      :19200  →  /api/health /api/status /api/players /api/command
 > 注意：插件是「客户端」，由插件主动连 Mod；请确保 AstrBot 所在机器能访问 MC 服务器的 19199/19200 端口（跨机需放行防火墙 / 端口转发）。
 
 ---
-MIT / 作者：白糖(Su1ger)
+作者：白糖(Su1ger)
