@@ -5,6 +5,30 @@
 
 ---
 
+## 📥 下载安装
+
+| 组件 | 文件 | 位置 |
+|:----|:----|:----|
+| **Forge Mod**（服务端） | `astrbot-bridge-2.0.0.jar` | [Releases → v2.0.0](https://github.com/88514205-oss/mc-bridge/releases/tag/v2.0.0) |
+| **AstrBot 插件** | `astrbot_plugin_mc_bridge_v2.zip` | [Releases → v2.0.0](https://github.com/88514205-oss/mc-bridge/releases/tag/v2.0.0) |
+
+### ① 服务端装 Mod（Forge 1.12.2）
+1. 下载 `astrbot-bridge-2.0.0.jar`，放进服务端 `mods/` 目录
+2. 启动一次服务器，会生成配置 `config/AstrBotBridge.cfg`（默认 WebSocket `19199` / HTTP `19200`，可设 `password`）
+3. 再次重启服务器即可生效
+
+### ② AstrBot 装插件
+1. 下载 `astrbot_plugin_mc_bridge_v2.zip`，解压到 AstrBot 的 `data/plugins/` 下（目录名保持 `astrbot_plugin_mc_bridge_v2`）
+2. AstrBot 面板 → 插件管理 → 启用 **MC Bridge v2**
+3. 进配置页填写 MC 服务器地址 / 端口 / 密码 / 绑定群号（详见 [`astrbot-plugin/README.md`](astrbot-plugin/README.md)）
+4. 重载插件
+
+> 两边端口、密码要一致；AstrBot 机器需能访问 MC 服务器的 19199/19200 端口。
+
+---
+
+---
+
 ## 🏗️ 项目总览
 
 这是一个 **MC服务器 Forge Mod** 和 **AstrBot插件** 的联合项目，让QQ群和MC服务器实现双向互通。
@@ -60,8 +84,7 @@ mc-bridge/                          ← 项目根目录
 │   ├── mcmod.info                 ← Mod元信息
 │   └── pack.mcmeta                ← 资源包描述
 │
-├── build/libs/
-│   └── astrbot-bridge-2.0.0.jar   ← ← 编译好的Mod！（用这个）
+│   (build/ 为编译产物，不入库；成品 jar 见上方 Release)
 │
 └── astrbot-plugin/                ← AstrBot插件源码
     ├── README.md                  ← 插件使用说明
@@ -158,5 +181,10 @@ Mod端主动推送事件：
 ---
 
 ## 🐱 关于
+
+- **版本**：Mod `2.0.0` / 插件 `2.0.0`（Forge 1.12.2-14.23.5.2860）
+- **作者**：白糖(Su1ger)，杨大师（辅助）
+- **许可证**：仓库内 `LICENSE.txt` 等为 Minecraft Forge MDK 自带（LGPL 2.1）；本项目其余代码版权归作者所有
+- **致谢**：基于 Minecraft Forge MDK 构建
 
 Made with ❤️ by 白糖(Su1ger)
