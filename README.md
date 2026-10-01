@@ -22,6 +22,8 @@ Release：https://github.com/88514205-oss/mc-bridge/releases/tag/v2.0.0
 2. 启动一次服务器，生成配置 `config/AstrBotBridge.cfg`
 3. 按需填写端口与 `password`，重启服务器
 
+客户端（玩家）不需要安装本 Mod：已声明 `serverSideOnly = true` 与 `acceptableRemoteVersions = "*"`，玩家直接连服即可，不会出现 mod rejections。
+
 ---
 
 ## 通信约定
