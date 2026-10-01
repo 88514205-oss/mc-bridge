@@ -9,11 +9,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = BridgeMod.MODID, name = BridgeMod.NAME, version = BridgeMod.VERSION)
+@Mod(modid = BridgeMod.MODID, name = BridgeMod.NAME, version = BridgeMod.VERSION,
+     serverSideOnly = true, acceptableRemoteVersions = "*")
 public class BridgeMod {
     public static final String MODID = "astrbot_bridge";
     public static final String NAME = "AstrBot Bridge v2";
-    public static final String VERSION = "0.0.2";
+    public static final String VERSION = "2.0.0";
 
     public static Logger logger;
     public static WebSocketServer wsServer;
@@ -49,7 +50,7 @@ public class BridgeMod {
         // 注册/bridge指令
         event.registerServerCommand(new BridgeCommand());
         
-        logger.info("AstrBot Bridge v0.0.2 \u5df2\u542f\u52a8! WebSocket:{} HTTP:{}",
+        logger.info("AstrBot Bridge v2.0.0 \u5df2\u542f\u52a8! WebSocket:{} HTTP:{}",
             ModConfig.wsPort, ModConfig.httpPort);
     }
 
